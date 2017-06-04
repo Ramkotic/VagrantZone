@@ -1,0 +1,35 @@
+# Vagrant Box With CentOS/7 Having an issue of RSYNC could NOT be found on your PATH etc..:
+#
+# 	COMMAND:      vagrant init centos/7
+#
+# While using 
+#	COMMAND:      vagrant up
+#
+# The ERROR I get was: 
+#	"rsync" could not be found on your PATH. 
+#	Make sure that rsync is properly installed on your system and available on the PATH.
+#
+# Hence go to the Vagrantfile on Your USER System's Location @ 
+#
+# For Example: on My System Path
+#
+#    C:\Users\CSRAO\.vagrant.d\boxes\centos-VAGRANTSLASH-7\1703.01\virtualbox
+#
+# Open and Update as below:
+# 
+
+
+Vagrant.configure("2") do |config|
+  
+
+  config.vm.base_mac = "5254008815b6"
+
+
+  config.vm.synced_folder \
+
+    ".",
+    "/vagrant",
+    type: "rsync"
+
+
+end
